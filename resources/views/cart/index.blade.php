@@ -28,7 +28,6 @@
                     <tr>
                         <td><img src="{{ asset('images/baju/' . $cartItem->baju->gambar) }}" alt="{{ $cartItem->baju->nama }}" width="100"></td>
                         <td>{{ $cartItem->baju->nama }}</td>
-                        <td>{{ $cartItem->baju->deskripsi }}</td>
                         <td>Rp {{ number_format($cartItem->baju->harga*$cartItem->quantity, 0, ',', '.') }}</td>
                         <td>
                             <form action="{{ route('cart.updateQuantity', $cartItem->id) }}" method="POST">

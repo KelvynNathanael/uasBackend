@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Edit Baju</title>
+    <link rel="stylesheet" href="{{ asset('css/admin_create.css') }}">    
 </head>
 <body>
     <h1>Edit Baju</h1>

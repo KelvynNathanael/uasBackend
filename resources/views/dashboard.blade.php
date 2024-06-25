@@ -44,7 +44,6 @@
                 <img src="{{ asset('images/baju/' . $baju->gambar) }}" alt="{{ $baju->nama }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $baju->nama }}</h5>
-                    <p class="card-text">{{ $baju->deskripsi }}</p>
                     <p class="card-text">Harga: Rp {{ number_format($baju->harga, 0, ',', '.') }}</p>
                     <form action="{{ route('cart.addToCart') }}" method="POST">
                         @csrf

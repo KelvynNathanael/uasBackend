@@ -60,14 +60,7 @@
                     <img src="{{ asset('images/baju/' . $baju->gambar) }}" alt="">
                 </div>
                 <h3>{{ $baju->nama }}</h3>
-                <div class="stars">
-                    <a href="#"><i class="ri-star-fill"></i></a>
-                    <a href="#"><i class="ri-star-fill"></i></a>
-                    <a href="#"><i class="ri-star-fill"></i></a>
-                    <a href="#"><i class="ri-star-fill"></i></a>
-                    <a href="#"><i class="ri-star-fill"></i></a>
-                    <a href="#">4.2/5</a>
-                </div>
+
                 
                 <div class="row-in">
                     <div class="row-left">

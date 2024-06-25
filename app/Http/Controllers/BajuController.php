@@ -50,7 +50,6 @@ class BajuController extends Controller
         $baju = Baju::findOrFail($id);
         $baju->nama = $request->nama;
         $baju->harga = $request->harga;
-        $baju->deskripsi = $request->deskripsi;
 
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->file('image')->extension();  
