@@ -57,20 +57,58 @@
             text-decoration: underline;
         }
     </style>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>  
+        @endif
 
-<div class="container">
-    <h2>Login</h2>
-    <form>
-        <input type="text" placeholder="Username" name="username" required>
-        <input type="password" placeholder="Password" name="password" required>
-        <button type="submit">Login</button>
-    </form>
-    <div class="switch">
-        <p>Don't have an account? <a href="{{route ('register')}}">Register here</a></p>
+        @if (session()->has('loginError'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('loginError')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>  
+        @endif
+
+        <h2>Login</h2>
+        <form action="/loginrou" method="post">
+            @csrf
+            <input type="text" placeholder="Username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}">
+            
+            @error('username')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+
+            <input type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password">
+            
+            @error('password')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="switch">
+            <p>Don't have an account? <a href="{{ route('register') }}">Register here</a></p>
+        </div>
     </div>
-</div>
 
+    <!-- Add Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
