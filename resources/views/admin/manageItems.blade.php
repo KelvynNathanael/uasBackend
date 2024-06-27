@@ -10,7 +10,6 @@
     <div class="tombol">
     <a href="{{ route('baju.create') }}">Create New Baju</a>
     <a href="{{ route('index') }}">Dashboard</a>
-    <a href="{{ route('checkoutview') }}">checkout</a>
     </div>
     <table border="1">
         <thead>

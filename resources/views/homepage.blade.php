@@ -108,7 +108,7 @@
                 </div>
                 <div class="f-text">
                     <h3>Cash On Delivery</h3>
-                    <p>uvuveve uveuveuve osas</p>
+                    <p>Pembayaran dilakukan saat barang diterima.</p>
                 </div>
             </div>
 
@@ -118,7 +118,7 @@
                     </div>
                     <div class="f-text">
                         <h3>Free Shipping</h3>
-                        <p>uvuveve uveuveuve osas</p>
+                        <p>Pengiriman barang tanpa biaya tambahan.</p>
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@
                         </div>
                         <div class="f-text">
                             <h3>30 days return</h3>
-                            <p>uvuveve uveuveuve osas</p>
+                            <p>Kebijakan pengembalian barang dalam 30 hari.</p>
                         </div>
                     </div>
         </div>
