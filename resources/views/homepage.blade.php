@@ -12,24 +12,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,
 700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
 </head>
 <body>
     <header>
-        <img src="../images/logo_transparant.png" alt="">
-
-        <ul class = "navlist">
-            <li><a href="#">All Product</a></li>
-            <li><a href="#">Best Seller</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="{{ route('manage.items') }}">admin</a></li>
-        </ul>
-
         <div class="nav-right">
             <a href=""><i class="ri-search-line"></i></a>
             <a href="{{route('cart.index')}}"><i class="ri-shopping-cart-line"></i></a>
-            <a href="{{route('login')}}"><i class="ri-user-line"></i></a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
+
+        @auth
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome back, {{ auth()->user()->username }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#" style="color: black;">Action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <form action="/logout" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="dropdown-item" style="color: black; background: none; border: none; padding-left: 15px; cursor: pointer;">
+                    Logout
+                </button>
+            </ul>
+          </li>
+            @else
+                <a href="{{ route('login') }}">
+                    <i class="ri-user-line" style="color: white; font-size: 24px;"></i>
+                </a>
+            @endauth
     </header>
 
     <section class="home"></section>
@@ -156,6 +168,6 @@
     </div>
 
     <script src="{{ asset('js/scripts.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

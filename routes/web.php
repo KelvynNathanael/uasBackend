@@ -6,6 +6,8 @@ use App\Http\Controllers\BajuController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\authController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\registerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,5 +45,10 @@ Route::patch('/cart/add/{id}', [CartController::class, 'addQuantity'])->name('ca
 Route::patch('/cart/deduct/{id}', [CartController::class, 'deductQuantity'])->name('cart.deductQuantity');
 
 //auth route
-Route::get('/login', [authController::class, 'login'])->name('login');
-Route::get('/register', [authController::class, 'register'])->name('register');
+route::get('/login',[loginController::class,'index'])->name('login')->middleware('guest');
+route::post('/loginrou',[loginController::class,'authenticate'])->name('loginroute');
+
+Route::get('/register', [registerController::class, 'index'])->name('register');
+Route::post('/registerrou', [registerController::class, 'store'])->name('registerrou');
+
+route::post('/logout',[dashboardController::class,'logout'])->name('logoutroute');
