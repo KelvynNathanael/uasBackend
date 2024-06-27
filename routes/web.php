@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
+use App\Http\Controllers\checkoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ use App\Http\Controllers\registerController;
 
 //admin route
 Route::get('/admin/manage-items', [ItemController::class, 'manageItems'])->name('manage.items');
+Route::get('/admin/checkout', [ItemController::class, 'checkout'])->name('checkoutview');
 
 //dashboard route
 Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -52,3 +54,6 @@ Route::get('/register', [registerController::class, 'index'])->name('register');
 Route::post('/registerrou', [registerController::class, 'store'])->name('registerrou');
 
 route::post('/logout',[dashboardController::class,'logout'])->name('logoutroute');
+
+//checkout route
+Route::post('/checkout', [checkoutController::class, 'processCheckout'])->name('checkout');

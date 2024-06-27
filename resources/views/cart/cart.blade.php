@@ -14,53 +14,6 @@
 
     </div>
     <div class="container">
-        <div id="root">
-            <!-- Product items -->
-            <div class='box'>
-                <div class='img-box'>
-                    <img class='image' src='images/beach_baju.jpg' alt='Kaos Beach'>
-                </div>
-                <div class='bottom'>
-                    <p>Kaos Beach</p>
-                    <h2>$ 120.000</h2>
-                    <button>Add to cart</button>
-                </div>
-            </div>
-
-            <div class='box'>
-                <div class='img-box'>
-                    <img class='image' src='images/dj_baju.jpg' alt='Kaos DJ'>
-                </div>
-                <div class='bottom'>
-                    <p>Kaos DJ</p>
-                    <h2>$ 120.000</h2>
-                    <button>Add to cart</button>
-                </div>
-            </div>
-
-            <div class='box'>
-                <div class='img-box'>
-                    <img class='image' src='images/catcher_baju.jpg' alt='Kaos Catcher'>
-                </div>
-                <div class='bottom'>
-                    <p>Kaos Catcher</p>
-                    <h2>$ 120.000</h2>
-                    <button>Add to cart</button>
-                </div>
-            </div>
-
-            <div class='box'>
-                <div class='img-box'>
-                    <img class='image' src='images/dance_baju.jpg' alt='Kaos Dance'>
-                </div>
-                <div class='bottom'>
-                    <p>Kaos Dance</p>
-                    <h2>$ 120.000</h2>
-                    <button>Add to cart</button>
-                </div>
-            </div>
-        </div>
-
         <div class="sidebar">
             <div class="head"><p>My Cart</p></div>
             <div id="cartItem">Your cart is empty</div>
@@ -100,8 +53,16 @@
                 <h3>Total</h3>
                 <h2 id="total">Rp {{ number_format($total, 0, ',', '.') }}</h2>
             </div>
+            <form action="{{route('checkout')}}" method="post">
+                @csrf
+                <button type="submit">Checkout</button>
+                @foreach($cartItems as $cartItem)
+                <input type="hidden" name="baju_id" value="{{ $cartItem->baju_id }}">
+                <input type="hidden" name="quantity" value="{{ $cartItem->quantity }}">
+                @endforeach
+                <input type="hidden" name="total" value="{{ $total }}">
+            </form>
         </div>
-    </div>
-    
+    </div> 
 </body>     
 </html>

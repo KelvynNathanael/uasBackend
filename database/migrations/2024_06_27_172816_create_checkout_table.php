@@ -1,13 +1,14 @@
 <?php
+// database/migrations/2024_06_27_172816_create_checkout_table.php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCartsTable extends Migration
+class CreateCheckoutTable extends Migration
 {
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
+        Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('baju_id');
@@ -20,6 +21,6 @@ class CreateCartsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('checkouts');
     }
 }

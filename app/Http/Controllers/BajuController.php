@@ -69,6 +69,15 @@ class BajuController extends Controller
 
     return redirect()->route('manage.items')->with('success', 'Baju has been updated successfully.');
 }
+public function destroy($id)
+{
+    $baju = Baju::findOrFail($id);
 
+
+    // Delete the Baju record
+    $baju->delete();
+
+    return redirect()->route('manage.items')->with('success', 'Baju has been deleted successfully.');
+}
 
 }
