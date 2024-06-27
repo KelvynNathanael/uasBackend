@@ -18,10 +18,8 @@
         <img src="../images/logo_transparant.png" alt="">
 
         <ul class = "navlist">
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">On Sale</a></li>
-            <li><a href="#">New Arrival</a></li>
-            <li><a href="#">Series</a></li>
+            <li><a href="#">All Product</a></li>
+            <li><a href="#">Best Seller</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="{{ route('manage.items') }}">admin</a></li>
         </ul>
@@ -29,22 +27,12 @@
         <div class="nav-right">
             <a href=""><i class="ri-search-line"></i></a>
             <a href="{{route('cart.index')}}"><i class="ri-shopping-cart-line"></i></a>
-            <a href="#"><i class="ri-user-line"></i></a>
+            <a href="{{route('login')}}"><i class="ri-user-line"></i></a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
 
-    <section class="home">
-        <div class="home-text">
-            <h6>New Arrivals</h6>
-            <h1>New Arrivals <br> ready to rock & roll all nite</h1>
-            <p>jhwjwjfnjwfj</p>
-            <a href="#" class="btn">
-                Shop Now
-                <i class = "ri-arrow-right-line"></i>
-            </a>
-        </div>
-    </section>
+    <section class="home"></section>
 
    
     <section class="n-product">

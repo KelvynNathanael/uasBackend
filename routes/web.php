@@ -5,6 +5,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\BajuController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\authController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,7 @@ Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.addTo
 Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.removeFromCart');
 Route::patch('/cart/add/{id}', [CartController::class, 'addQuantity'])->name('cart.addQuantity');
 Route::patch('/cart/deduct/{id}', [CartController::class, 'deductQuantity'])->name('cart.deductQuantity');
+
+//auth route
+Route::get('/login', [authController::class, 'login'])->name('login');
+Route::get('/register', [authController::class, 'register'])->name('register');

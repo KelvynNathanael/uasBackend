@@ -8,6 +8,8 @@
 </head>
 <body>
     <div class="header">
+    <button onclick="window.history.back()" class="back-button">
+        <i class="ri-arrow-left-s-line"></i></button>
         <img src="../images/logo_transparant.png" alt="">
         <div class = "cart"> <i class="ri-shopping-cart-line"></i><p id="count">0</p></div>
     </div>
