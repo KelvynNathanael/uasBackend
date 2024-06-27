@@ -16,32 +16,42 @@
 </head>
 <body>
     <header>
+        <img src="../images/logo_transparant.png" alt="">
+        <ul class = "navlist">
+            <li><a href="#">All Product</a></li>
+            <li><a href="#">Best Seller</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="{{ route('manage.items') }}">admin</a></li>
+        </ul>
         <div class="nav-right">
             <a href=""><i class="ri-search-line"></i></a>
             <a href="{{route('cart.index')}}"><i class="ri-shopping-cart-line"></i></a>
-            <div class="bx bx-menu" id="menu-icon"></div>
         </div>
 
-        @auth
         <li class="nav-item dropdown">
+            @auth
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Welcome back, {{ auth()->user()->username }}
+                Welcome back, {{ auth()->user()->username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#" style="color: black;">Action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <form action="/logout" method="POST" style="display: inline;">
-                @csrf
-                <button type="submit" class="dropdown-item" style="color: black; background: none; border: none; padding-left: 15px; cursor: pointer;">
-                    Logout
-                </button>
-            </ul>
-          </li>
+                    <li><a class="dropdown-item" href="#" style="color: black;">Action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <form action="/logout" method="POST" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="dropdown-item" style="color: black; background: none; border: none; padding-left: 15px; cursor: pointer;">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                </ul>
             @else
                 <a href="{{ route('login') }}">
                     <i class="ri-user-line" style="color: white; font-size: 24px;"></i>
                 </a>
             @endauth
+        </li>
+        
     </header>
 
     <section class="home"></section>
