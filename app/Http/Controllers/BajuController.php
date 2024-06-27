@@ -39,34 +39,36 @@ class BajuController extends Controller
         return view('admin.editBaju', compact('baju'));
     }
 
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'nama' => 'required',
-            'image' => 'image',
-            'harga' => 'required|numeric',
-        ]);
+    public function update(Request $request, $id){
+    $request->validate([
+        'nama' => 'required',
+        'image' => 'image|nullable', // Make image nullable in case it is not updated
+        'harga' => 'required|numeric',
+    ]);
 
-        $baju = Baju::findOrFail($id);
-        $baju->nama = $request->nama;
-        $baju->harga = $request->harga;
+    $baju = Baju::findOrFail($id);
+    $baju->nama = $request->nama;
+    $baju->harga = $request->harga;
 
-        if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->file('image')->extension();  
-            $request->file('image')->move(public_path('images'), $imageName);
-            $baju->gambar = $imageName;
+    if ($request->hasFile('image')) {
+        // Delete the old image if it exists
+        if ($baju->gambar) {
+            $oldImagePath = public_path('images/baju') . '/' . $baju->gambar;
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
         }
 
-        $baju->save();
-
-        return redirect()->route('manage.items')->with('success', 'Baju has been updated successfully.');
+        // Upload the new image
+        $imageName = time() . '.' . $request->file('image')->extension();
+        $request->file('image')->move(public_path('images/baju'), $imageName);
+        $baju->gambar = $imageName;
     }
-    public function destroy($id)
-{
-    $baju = Baju::findOrFail($id);
-    $baju->delete();
-    
-    return redirect()->route('manage.items')->with('success', 'Baju has been deleted successfully.');
+
+    $baju->save();
+
+    return redirect()->route('manage.items')->with('success', 'Baju has been updated successfully.');
 }
+
 
 }
