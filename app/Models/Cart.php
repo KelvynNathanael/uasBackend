@@ -1,24 +1,24 @@
 <?php
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
-{
-    use HasFactory;
-
-    protected $fillable = ['user_id', 'baju_id', 'quantity'];
-
-    public function user()
+    class Cart extends Model
     {
-        return $this->belongsTo(User::class);
-    }
+        use HasFactory;
 
-    public function baju()
-    {
-        return $this->belongsTo(Baju::class);
+        protected $fillable = ['user_id', 'baju_id', 'quantity'];
+
+        public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
+
+        public function baju()
+        {
+            return $this->belongsTo(Baju::class);
+        }
     }
-}
 
 

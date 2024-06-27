@@ -7,6 +7,7 @@
     <title>Create Baju</title>
 </head>
 <body>
+    
     <h1>Create New Baju</h1>
     <form action="{{ route('baju.store') }}" method="POST" enctype="multipart/form-data">
         @csrf

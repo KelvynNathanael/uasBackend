@@ -8,6 +8,13 @@ use App\Models\Baju;
 
 class CartController extends Controller
 {
+    //dijalankan pertama kali supaya jika belum login akan login dulu
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    //view cart
     public function index(){
         $cartItems = Cart::with('baju')->where('user_id', auth()->id())->get();
         return view('cart.cart', compact('cartItems'));
