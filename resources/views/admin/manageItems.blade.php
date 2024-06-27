@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/admin_doc.css') }}">    
 </head>
 <body>
+    <div class="tombol">
     <a href="{{ route('baju.create') }}">Create New Baju</a>
     <a href="{{ route('index') }}">Dashboard</a>
+    </div>
     <table border="1">
         <thead>
             <tr>

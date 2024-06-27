@@ -6,6 +6,23 @@
     font-size: 18px;
 }
 
+.back-button {
+    padding: 2px 4px; /* Small padding */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: none; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: auto; /* Minimum width */
+    height: 24px; /* Fixed height */
+    display: inline-flex; /* Align items within button */
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
+}
+
+.back-button i {
+    margin-right: 4px; 
+}
+
 body {
     display: flex;
     align-items: center;

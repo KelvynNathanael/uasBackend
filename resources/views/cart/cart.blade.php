@@ -8,6 +8,8 @@
 </head>
 <body>
     <div class="header">
+    <button onclick="window.history.back()" class="back-button">
+        <i class="ri-arrow-left-s-line"></i></button>
         <img src="../images/logo_transparant.png" alt="">
         <div class = "cart"> <i class="ri-shopping-cart-line"></i><p id="count">0</p></div>
     </div>
@@ -62,7 +64,14 @@
         <div class="sidebar">
             <div class="head"><p>My Cart</p></div>
             <div id="cartItem">Your cart is empty</div>
+            @php
+                $total = 0;
+            @endphp
             @foreach($cartItems as $cartItem)
+            @php
+                $itemTotal = $cartItem->baju->harga * $cartItem->quantity;
+                $total += $itemTotal;
+            @endphp
             <div class='cart-item'>
                 <div class='row-img'>
                 <img src="{{ asset('images/baju/' . $cartItem->baju->gambar) }}" alt="{{ $cartItem->baju->nama }}">
@@ -89,10 +98,10 @@
             @endforeach
             <div class="foot">
                 <h3>Total</h3>
-                <h2 id="total">Rp 0</h2>
+                <h2 id="total">Rp {{ number_format($total, 0, ',', '.') }}</h2>
             </div>
         </div>
     </div>
     
-</body>
+</body>     
 </html>
