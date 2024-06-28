@@ -10,4 +10,4 @@ Instalasi
 4. npm artisan serve
 
 <br>
-notes:maaf itu contributor steve carindra salah akun saat kelompok kita ingin ngepush
+notes:maaf itu contributor steve carindra salah akun saat kelompok kita ingin ngepush. harusnya itu adalah akun gregorio,hanya saja tidak sengaja tertukar karena steve pernah menggunakan laptop gregorio untuk memakai github.
